@@ -15,10 +15,10 @@ char auth_sensor[] = "Auth-Token-SensorProject";
 char auth_sensor[] = "Auth-Token-ServoProject";
 
 // Pins connected to the motors
-#define IN_1 2 // Change to your PWM pin for motor 1
-#define IN_2 4 // Change to your PWM pin for motor 2
-#define IN_3 5 // Change to your PWM pin for motor 3
-#define IN_4 18 // Change to your PWM pin for motor 4
+#define IN_1 2 // Connect to Motor Control Module's pin, Input 1
+#define IN_2 4 // Connect to Motor Control Module's pin, Input 2
+#define IN_3 5 // Connect to Motor Control Module's pin, Input 3
+#define IN_4 18 // Connect to Motor Control Module's pin, Input 4
 #define ENA 22 // Enable Motor A Pin
 #define ENB 23 // Enable Motor B Pin
 
