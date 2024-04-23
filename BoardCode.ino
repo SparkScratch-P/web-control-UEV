@@ -32,13 +32,17 @@ char auth_sensor[] = "Auth-Token-ServoProject";
 #define TRIG_PIN_4 15 // Change to your trigger pin for sensor 4
 #define ECHO_PIN_4 14 // Change to your echo pin for sensor 4
 
+const int photoresistorPin = 34; // Analog pin connected to the photoresistor
+const int ledPin = 33; // Digital pin connected to the LED
+
 // Create servo objects
 Servo servo1;
 Servo servo2;
 
-// Initialize the Blynk objects for Motor Control Project and Sensor Stream Project
+// Initialize the Blynk objects for Motor Control Project and Sensor Stream Project and Servo Project
 BlynkTimer timer_motor;
 BlynkTimer timer_sensor;
+BlynkTimer timer_servo;
 
 // Function to control motor speed for function 1
 void function1(int speed) {
@@ -165,6 +169,9 @@ void setup() {
   servo1.attach(19); // Pin 19 for servo 1
   servo2.attach(21); // Pin 21 for servo 2
 
+  pinMode(photoresistorPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+
   // Call functions when virtual pins change for Motor Control Project
   timer_motor.setInterval(100L, []() {
     int speed = Blynk.virtualRead(V5).asInt(); // Read speed from V5 slider
@@ -174,6 +181,8 @@ void setup() {
     function4(speed); // Call function 4 with speed
   });
 
+  timer.setInterval(100L, servoControl);
+  
   // Stream distances from ultrasonic sensors to Sensor Stream Project
   timer_sensor.setInterval(1000L, []() {
     float distance1 = readDistance1(); // Read distance from sensor 1
@@ -188,14 +197,28 @@ void setup() {
 }
 
 void loop() {
-  // Run Blynk tasks for Motor Control Project
+  // Initiate Blynk
   Blynk.run();
-  // Run Blynk tasks for Sensor Stream Project
-  Blynk.run();
+
   // Run BlynkTimer tasks for Motor Control Project
   timer_motor.run();
   // Run BlynkTimer tasks for Sensor Stream Project
   timer_sensor.run();
+  // Run BlynkTimer tasks for Servo Project
+  timer_servo.run();
+  
+  // Read the analog value from the photoresistor
+  int lightIntensity = analogRead(photoresistorPin);
+
+  // If light intensity is less than one-third of maximum intensity
+  if (lightIntensity < 341) { // (1024 * 1/3 = 341)
+    // Turn on the LED
+    digitalWrite(ledPin, HIGH);
+  } else {
+    // Turn off the LED
+    digitalWrite(ledPin, LOW);
+  }
+
 }
 
 // Callback for slider widget to control motor speed
