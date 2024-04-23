@@ -30,6 +30,9 @@ char auth_sensor[] = "Auth-Token-ServoProject";
 #define TRIG_PIN_4 15 // Change to your trigger pin for sensor 4
 #define ECHO_PIN_4 14 // Change to your echo pin for sensor 4
 
+const int ENA = 22; // Enable Motor A Pin
+const int ENB = 23; // Enable Motor B Pin
+
 // Create servo objects
 Servo servo1;
 Servo servo2;
@@ -126,6 +129,13 @@ void setup() {
   // Initialize serial communication
   Serial.begin(115200);
 
+  // Initialize the GPIO pins to Enable motors A and B
+  pinMode(ENA, OUTPUT);
+  pinMode(ENB, OUTPUT);
+  
+  digitalWrite(ENA, HIGH); // Turn on the first LED
+  digitalWrite(ENB, HIGH); // Turn on the second LED
+
   // Set motor pins as outputs
   pinMode(IN_1, OUTPUT);
   pinMode(IN_2, OUTPUT);
@@ -153,8 +163,8 @@ void setup() {
   Blynk.begin(ssid, pass);
 
   // Attach servo motors to GPIO pins
-  servo1.attach(2); // Pin 2 for servo 1
-  servo2.attach(4); // Pin 4 for servo 2
+  servo1.attach(19); // Pin 19 for servo 1
+  servo2.attach(21); // Pin 21 for servo 2
 
   // Call functions when virtual pins change for Motor Control Project
   timer_motor.setInterval(100L, []() {
