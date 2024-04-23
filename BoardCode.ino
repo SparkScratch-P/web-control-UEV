@@ -4,18 +4,14 @@
 #include <Servo.h>
 
 // WiFi credentials for Motor Control Project
-char ssid_motor[] = "YourWiFiSSID_motor";
-char pass_motor[] = "YourWiFiPassword_motor";
+char ssid = "YourWiFiSSID_motor";
+char pass = "YourWiFiPassword_motor";
 char auth_motor[] = "Auth-Token-MotorProject";
 
 // WiFi credentials for Sensor Stream Project
-char ssid_sensor[] = "YourWiFiSSID_sensor";
-char pass_sensor[] = "YourWiFiPassword_sensor";
 char auth_sensor[] = "Auth-Token-SensorProject";
 
 // WiFi credentials for Pan-tilt Servo Project
-char ssid_sensor[] = "YourWiFiSSID_servo";
-char pass_sensor[] = "YourWiFiPassword_servo";
 char auth_sensor[] = "Auth-Token-ServoProject";
 
 // Pins connected to the motors
@@ -146,16 +142,15 @@ void setup() {
   pinMode(TRIG_PIN_4, OUTPUT);
   pinMode(ECHO_PIN_4, INPUT);
 
-  // Initialize Blynk for Motor Control Project
-  Blynk.begin(auth_motor, ssid_motor, pass_motor);
+  // Initialize Blynk for the Motor Control Project
+  Blynk.begin(auth_motor, ssid, pass);
 
   // Initialize Blynk for Sensor Stream Project
-  Blynk.config(auth_sensor);
-  Blynk.connectWiFi(ssid_sensor, pass_sensor);
+  Blynk.begin(auth_sensor, ssid, pass);
 
-  // Initialize Blynk for Pan-Tilt Servo Project
+  // Initialize Blynk for the Pan-Tilt Servo Project
   Blynk.config(auth_servo);
-  Blynk.connectWiFi(ssid_servo, pass_servo);
+  Blynk.begin(ssid, pass);
 
   // Attach servo motors to GPIO pins
   servo1.attach(2); // Pin 2 for servo 1
