@@ -44,6 +44,8 @@ BlynkTimer timer_motor;
 BlynkTimer timer_sensor;
 BlynkTimer timer_servo;
 
+//Linear Motion Functions
+
 // Function to control motor speed for function 1
 void function1(int speed) {
   // Set speed of alternate motors
@@ -61,6 +63,8 @@ void function2(int speed) {
   analogWrite(IN_2, speed);
   analogWrite(IN_4, speed);
 }
+
+//Turn Functions
 
 // Function to control motor speed for function 3
 void function3(int speed) {
