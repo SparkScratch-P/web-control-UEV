@@ -29,9 +29,8 @@ char auth_sensor[] = "Auth-Token-ServoProject";
 #define ECHO_PIN_3 16 // Change to your echo pin for sensor 3
 #define TRIG_PIN_4 15 // Change to your trigger pin for sensor 4
 #define ECHO_PIN_4 14 // Change to your echo pin for sensor 4
-
-const int ENA = 22; // Enable Motor A Pin
-const int ENB = 23; // Enable Motor B Pin
+#define ENA 22 // Enable Motor A Pin
+#define ENB 23 // Enable Motor B Pin
 
 // Create servo objects
 Servo servo1;
