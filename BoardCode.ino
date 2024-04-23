@@ -36,8 +36,8 @@ const int photoresistorPin = 34; // Analog pin connected to the photoresistor
 const int ledPin = 33; // Digital pin connected to the LED
 
 // Create servo objects
-Servo servo1;
-Servo servo2;
+Servo servo1; //D25
+Servo servo2; //D26
 
 // Initialize the Blynk objects for Motor Control Project and Sensor Stream Project and Servo Project
 BlynkTimer timer_motor;
@@ -188,8 +188,8 @@ void setup() {
   Blynk.begin(ssid, pass);
 
   // Attach servo motors to GPIO pins
-  servo1.attach(19); // Pin 19 for servo 1
-  servo2.attach(21); // Pin 21 for servo 2
+  servo1.attach(25); // Pin 19 for servo 1
+  servo2.attach(26); // Pin 21 for servo 2
 
   pinMode(photoresistorPin, INPUT);
   pinMode(ledPin, OUTPUT);
