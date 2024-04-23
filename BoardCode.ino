@@ -80,6 +80,24 @@ void function4(int speed) {
   analogWrite(IN_4, speed);
 }
 
+// Function to control single motor speed for function 4
+void function5(int speed) {
+  // Set speed of motors 1 and 4
+  analogWrite(IN_2, 0);
+  analogWrite(IN_3, 0);
+  analogWrite(IN_1, 0);
+  analogWrite(IN_4, speed);
+}
+
+// Function to control single motor speed for function 3
+void function6(int speed) {
+  // Set speed of motors 1 and 4
+  analogWrite(IN_2, 0);
+  analogWrite(IN_4, 0);
+  analogWrite(IN_1, 0);
+  analogWrite(IN_3, speed);
+}
+
 // Function to read distance from ultrasonic sensor 1
 float readDistance1() {
   digitalWrite(TRIG_PIN_1, LOW);
@@ -179,6 +197,8 @@ void setup() {
     function2(speed); // Call function 2 with speed
     function3(speed); // Call function 3 with speed
     function4(speed); // Call function 4 with speed
+    function5(speed); // Call function 5 with speed
+    function6(speed); // Call function 6 with speed
   });
 
   timer.setInterval(100L, servoControl);
@@ -242,14 +262,26 @@ BLYNK_WRITE(V2) {
 
 BLYNK_WRITE(V3) {
   int buttonState = param.asInt();
-  if (buttonState == HIGH) {
-    function3(speed);
+  
+  if (buttonState == 1) {
+    function3(speed); //Two wheel Turn
+  } 
+  else if (buttonState == 2) {
+    function6(speed); //One wheel Turn
+  } 
+
 }
 
 BLYNK_WRITE(V4) {
   int buttonState = param.asInt();
-  if (buttonState == HIGH) {
-    function4(speed);
+  
+  if (buttonState == 1) {
+    function4(speed); //Two wheel Turn
+  } 
+  else if (buttonState == 2) {
+    function5(speed); //One wheel Turn
+  } 
+  
 }
 
 // Blynk Write callbacks for Sensor Stream Project to receive data from ultrasonic sensors
