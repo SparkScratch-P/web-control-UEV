@@ -19,6 +19,8 @@ char auth_sensor[] = "Auth-Token-ServoProject";
 #define IN_2 4 // Change to your PWM pin for motor 2
 #define IN_3 5 // Change to your PWM pin for motor 3
 #define IN_4 18 // Change to your PWM pin for motor 4
+#define ENA 22 // Enable Motor A Pin
+#define ENB 23 // Enable Motor B Pin
 
 // Pins connected to the ultrasonic sensors
 #define TRIG_PIN_1 19 // Change to your trigger pin for sensor 1
@@ -29,8 +31,6 @@ char auth_sensor[] = "Auth-Token-ServoProject";
 #define ECHO_PIN_3 16 // Change to your echo pin for sensor 3
 #define TRIG_PIN_4 15 // Change to your trigger pin for sensor 4
 #define ECHO_PIN_4 14 // Change to your echo pin for sensor 4
-#define ENA 22 // Enable Motor A Pin
-#define ENB 23 // Enable Motor B Pin
 
 // Create servo objects
 Servo servo1;
