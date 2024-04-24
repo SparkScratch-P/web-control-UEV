@@ -22,17 +22,17 @@ char auth_sensor[] = "Auth-Token-ServoProject";
 #define IN_3 5 // Connect to Motor Control Module's pin, Input 3
 #define IN_4 18 // Connect to Motor Control Module's pin, Input 4
 #define ENA 22 // Enable Motor A Pin
-#define ENB 13 // Enable Motor B Pin
+#define ENB 23 // Enable Motor B Pin
 
 // Pins connected to the ultrasonic sensors
-#define TRIG_PIN_1 19 // Change to your trigger pin for sensor 1
-#define ECHO_PIN_1 23 // Change to your echo pin for sensor 1
-#define TRIG_PIN_2 22 // Change to your trigger pin for sensor 2
-#define ECHO_PIN_2 21 // Change to your echo pin for sensor 2
-#define TRIG_PIN_3 17 // Change to your trigger pin for sensor 3
-#define ECHO_PIN_3 16 // Change to your echo pin for sensor 3
-#define TRIG_PIN_4 34 // Change to your trigger pin for sensor 4
-#define ECHO_PIN_4 14 // Change to your echo pin for sensor 4
+#define TRIG_PIN_1 13 // Change to your trigger pin for sensor 1
+#define ECHO_PIN_1 12 // Change to your echo pin for sensor 1
+#define TRIG_PIN_2 14 // Change to your trigger pin for sensor 2
+#define ECHO_PIN_2 27 // Change to your echo pin for sensor 2
+#define TRIG_PIN_3 33 // Change to your trigger pin for sensor 3
+#define ECHO_PIN_3 32 // Change to your echo pin for sensor 3
+#define TRIG_PIN_4 35 // Change to your trigger pin for sensor 4
+#define ECHO_PIN_4 34 // Change to your echo pin for sensor 4
 
 const int photoresistorPin = 15; // Analog pin connected to the photoresistor
 const int ledPin = 33; // Digital pin connected to the LED
