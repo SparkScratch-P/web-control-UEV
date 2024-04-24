@@ -152,6 +152,16 @@ float readDistance4() {
   return distance;
 }
 
+
+void readServoAngles() {
+  // Read the current angles of the servos
+  int currentAngle1 = servo1.read();
+  int currentAngle2 = servo2.read();
+  // Update the value of virtual pins V12 and V13 with the servo angles
+  Blynk.virtualWrite(V12, currentAngle1);
+  Blynk.virtualWrite(V13, currentAngle2);
+}
+
 void setup() {
   // Initialize serial communication
   Serial.begin(115200);
@@ -209,6 +219,7 @@ void setup() {
   });
 
   timer.setInterval(100L, servoControl);
+  timer.setInterval(100L, readServoAngles);
   
   // Stream distances from ultrasonic sensors to Sensor Stream Project
   timer_sensor.setInterval(1000L, []() {
@@ -325,4 +336,20 @@ BLYNK_WRITE(V10) {
 BLYNK_WRITE(V11) {
   int pos = param.asInt();
   servo2.write(pos);
+}
+
+// Blynk Write callback to read and display first servo angle on the first value display widget
+BLYNK_WRITE(V12) {
+  // Read the current angle of the first servo
+  int currentAngle1 = servo1.read();
+  // Update the first value display widget with the current angle
+  Blynk.virtualWrite(V12, currentAngle1);
+}
+
+// Blynk Write callback to read and display second servo angle on the second value display widget
+BLYNK_WRITE(V13) {
+  // Read the current angle of the second servo
+  int currentAngle2 = servo2.read();
+  // Update the second value display widget with the current angle
+  Blynk.virtualWrite(V13, currentAngle2);
 }
