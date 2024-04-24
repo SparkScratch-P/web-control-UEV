@@ -49,7 +49,7 @@ BlynkTimer timer_servo;
 //Linear Motion Functions
 
 // Function to control motor speed for function 1
-void function1(int speed) {
+void forward(int speed) {
   // Set speed of alternate motors
   analogWrite(IN_1, speed);
   analogWrite(IN_3, speed);
@@ -58,7 +58,7 @@ void function1(int speed) {
 }
 
 // Function to control motor speed for function 2
-void function2(int speed) {
+void reverse(int speed) {
   // Set speed of alternate motors
   analogWrite(IN_1, 0);
   analogWrite(IN_3, 0);
@@ -69,7 +69,7 @@ void function2(int speed) {
 //Turn Functions
 
 // Function to control motor speed for function 3
-void function3(int speed) {
+void right(int speed) {
   // Set speed of motors 2 and 3
   analogWrite(IN_1, 0);
   analogWrite(IN_4, 0);
@@ -78,7 +78,7 @@ void function3(int speed) {
 }
 
 // Function to control motor speed for function 4
-void function4(int speed) {
+void left(int speed) {
   // Set speed of motors 1 and 4
   analogWrite(IN_2, 0);
   analogWrite(IN_3, 0);
@@ -86,8 +86,8 @@ void function4(int speed) {
   analogWrite(IN_4, speed);
 }
 
-// Function to control single motor speed for function 4
-void function5(int speed) {
+// Function to control single motor speed for function 5
+void leftrad(int speed) {
   // Set speed of motors 1 and 4
   analogWrite(IN_2, 0);
   analogWrite(IN_3, 0);
@@ -95,25 +95,13 @@ void function5(int speed) {
   analogWrite(IN_4, speed);
 }
 
-// Function to control single motor speed for function 3
-void function6(int speed) {
+// Function to control single motor speed for function 6
+void rightrad(int speed) {
   // Set speed of motors 1 and 4
   analogWrite(IN_2, 0);
   analogWrite(IN_4, 0);
   analogWrite(IN_1, 0);
   analogWrite(IN_3, speed);
-}
-
-// Function to read distance from ultrasonic sensor 1
-float readDistance1() {
-  digitalWrite(TRIG_PIN_1, LOW);
-  delayMicroseconds(2);
-  digitalWrite(TRIG_PIN_1, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(TRIG_PIN_1, LOW);
-  unsigned long duration = pulseIn(ECHO_PIN_1, HIGH);
-  float distance = duration * 0.034 / 2;
-  return distance;
 }
 
 // Function to read distance from ultrasonic sensor 2
@@ -269,23 +257,23 @@ BLYNK_WRITE(V5) {
 BLYNK_WRITE(V1) {
   int buttonState = param.asInt();
   if (buttonState == HIGH) {
-    function(speed);
+    forward(speed);
 }
 
 BLYNK_WRITE(V2) {
   int buttonState = param.asInt();
   if (buttonState == HIGH) {
-    function2(speed);
+    reverse(speed);
 }
 
 BLYNK_WRITE(V3) {
   int buttonState = param.asInt();
   
   if (buttonState == 1) {
-    function3(speed); //Two wheel Turn
+    right(speed); //Two wheel Turn
   } 
   else if (buttonState == 2) {
-    function6(speed); //One wheel Turn
+    rightrad(speed); //One wheel Turn
   } 
 
 }
@@ -294,10 +282,10 @@ BLYNK_WRITE(V4) {
   int buttonState = param.asInt();
   
   if (buttonState == 1) {
-    function4(speed); //Two wheel Turn
+    left(speed); //Two wheel Turn
   } 
   else if (buttonState == 2) {
-    function5(speed); //One wheel Turn
+    leftrad(speed); //One wheel Turn
   } 
   
 }
