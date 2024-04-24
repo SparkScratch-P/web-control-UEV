@@ -22,7 +22,7 @@ char auth_sensor[] = "Auth-Token-ServoProject";
 #define IN_3 5 // Connect to Motor Control Module's pin, Input 3
 #define IN_4 18 // Connect to Motor Control Module's pin, Input 4
 #define ENA 22 // Enable Motor A Pin
-#define ENB 23 // Enable Motor B Pin
+#define ENB 15 // Enable Motor B Pin
 
 // Pins connected to the ultrasonic sensors
 #define TRIG_PIN_1 13 // Change to your trigger pin for sensor 1
@@ -31,15 +31,15 @@ char auth_sensor[] = "Auth-Token-ServoProject";
 #define ECHO_PIN_2 27 // Change to your echo pin for sensor 2
 #define TRIG_PIN_3 33 // Change to your trigger pin for sensor 3
 #define ECHO_PIN_3 32 // Change to your echo pin for sensor 3
-#define TRIG_PIN_4 35 // Change to your trigger pin for sensor 4
-#define ECHO_PIN_4 34 // Change to your echo pin for sensor 4
+#define TRIG_PIN_4 23 // Change to your trigger pin for sensor 4
+#define ECHO_PIN_4 25 // Change to your echo pin for sensor 4
 
-const int photoresistorPin = 15; // Analog pin connected to the photoresistor
-const int ledPin = 33; // Digital pin connected to the LED
+const int photoresistorPin = 34; // Analog pin connected to the photoresistor
+const int ledPin = 25; // Digital pin connected to the LED
 
 // Create servo objects
-Servo servo1; //D25
-Servo servo2; //D26
+Servo servo1; //D19
+Servo servo2; //D21
 
 // Initialize the Blynk objects for Motor Control Project and Sensor Stream Project and Servo Project
 BlynkTimer timer_motor;
@@ -201,8 +201,8 @@ void setup() {
   Blynk.begin(ssid, pass);
 
   // Attach servo motors to GPIO pins
-  servo1.attach(25); // Pin 19 for servo 1
-  servo2.attach(26); // Pin 21 for servo 2
+  servo1.attach(19); // Pin 19 for servo 1
+  servo2.attach(21); // Pin 21 for servo 2
 
   pinMode(photoresistorPin, INPUT);
   pinMode(ledPin, OUTPUT);
