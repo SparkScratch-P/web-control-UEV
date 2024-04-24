@@ -3,15 +3,17 @@
 #include <BlynkSimpleEsp32.h>
 #include <Servo.h>
 
-// WiFi credentials for Motor Control Project
-char ssid = "YourWiFiSSID_motor";
-char pass = "YourWiFiPassword_motor";
+// WiFi credentials
+char ssid = "YourWiFiSSID";
+char pass = "YourWiFiPassword";
+
+ // Coonect Motor Control Project
 char auth_motor[] = "Auth-Token-MotorProject";
 
-// WiFi credentials for Sensor Stream Project
+// Connect Sensor Stream Project
 char auth_sensor[] = "Auth-Token-SensorProject";
 
-// WiFi credentials for Pan-tilt Servo Project
+// Connect Pan-tilt Servo Project
 char auth_sensor[] = "Auth-Token-ServoProject";
 
 // Pins connected to the motors
@@ -178,13 +180,14 @@ void setup() {
   pinMode(ECHO_PIN_4, INPUT);
 
   // Initialize Blynk for the Motor Control Project
-  Blynk.begin(auth_motor, ssid, pass);
+  Blynk.config(auth_motor);
 
   // Initialize Blynk for Sensor Stream Project
-  Blynk.begin(auth_sensor, ssid, pass);
+ Blynk.config(auth_sensor);
 
   // Initialize Blynk for the Pan-Tilt Servo Project
   Blynk.config(auth_servo);
+  
   Blynk.begin(ssid, pass);
 
   // Attach servo motors to GPIO pins
