@@ -35,7 +35,7 @@ char auth_sensor[] = "Auth-Token-ServoProject";
 #define ECHO_PIN_4 25 // Change to your echo pin for sensor 4
 
 const int photoresistorPin = 34; // Analog pin connected to the photoresistor
-const int ledPin = 25; // Digital pin connected to the LED
+const int ledPin = 26; // Digital pin connected to the LED
 
 // Create servo objects
 Servo servo1; //D19
