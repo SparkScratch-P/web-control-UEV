@@ -1,7 +1,7 @@
 # Web Control UEVs
 Browser-based control system for UAV/UGV with Node MCU, ESP32-S2 and Blynk IoT API
 
-![image](https://github.com/SparkScratch-P/web-control-UEV/assets/73777108/3b101821-68a0-48d4-8573-2c8df01ab599)
+![Circuit Design](https://raw.githubusercontent.com/SparkScratch-P/web-control-UEV/main/Circuit%20Design.png)
 
 
 Materials
