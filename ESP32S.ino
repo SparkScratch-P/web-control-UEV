@@ -4,6 +4,13 @@
 #include <BlynkSimpleEsp32.h>
 #include <Servo.h>
 
+//Connect to Blynk IoT
+#define BLYNK_TEMPLATE_ID " " // Edit
+#define BLYNK_TEMPLATE_NAME "Web Control UEV"
+#define BLYNK_DEVICE_NAME "Web Control UEV"
+#define BLYNK_AUTH_TOKEN " " // Edit
+#define BLYNK_PRINT Serial
+
 // WiFi credentials
 char ssid = "YourWiFiSSID";
 char pass = "YourWiFiPassword";
