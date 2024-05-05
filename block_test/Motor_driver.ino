@@ -120,10 +120,6 @@ void setup() {
     function5(speed); // Call function 5 with speed
     function6(speed); // Call function 6 with speed
   });
-
-  timer.setInterval(100L, servoControl);
-  timer.setInterval(100L, readServoAngles);
-  });
 }
 
 void loop() {
