@@ -40,15 +40,18 @@ BLYNK_WRITE(V0)
 
 BLYNK_WRITE(V1)
 {
-  digitalWrite(LED1_PIN, HIGH);
+  int value = param.asInt();
+  digitalWrite(LED1_PIN, value);
 }
 
 BLYNK_WRITE(V2)
 {
-  digitalWrite(LED2_PIN, HIGH);
+  int value = param.asInt();
+  digitalWrite(LED2_PIN, value);
 }
 
 BLYNK_WRITE(V3)
 {
-  digitalWrite(LED3_PIN, HIGH);
+  int value = param.asInt();
+  digitalWrite(LED3_PIN, value);
 }
