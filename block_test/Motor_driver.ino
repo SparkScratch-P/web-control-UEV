@@ -132,6 +132,7 @@ void loop() {
 
   // Run BlynkTimer tasks for Motor Control Project
   timer_motor.run();
+}
   
 // Callback for slider widget to control motor speed
 BLYNK_WRITE(V5) {
@@ -174,4 +175,3 @@ BLYNK_WRITE(V4) {
     leftrad(speed); //One wheel Turn
   } 
   
-}
