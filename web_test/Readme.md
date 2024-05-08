@@ -1,6 +1,6 @@
 Blynk IoT API Testing Tool
 ---
-https://sparkscratch-p.github.io/web-control-UEV/Web_test/
+https://sparkscratch-p.github.io/web-control-UEV/web_test/
 
 
 ### Pin Structure:
