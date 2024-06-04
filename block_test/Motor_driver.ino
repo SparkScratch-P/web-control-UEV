@@ -141,12 +141,14 @@ BLYNK_WRITE(V1) {
   int buttonState = param.asInt();
   if (buttonState == HIGH) {
     forward(speed);
+  }
 }
 
 BLYNK_WRITE(V2) {
   int buttonState = param.asInt();
   if (buttonState == HIGH) {
     reverse(speed);
+  }
 }
 
 BLYNK_WRITE(V3) {
